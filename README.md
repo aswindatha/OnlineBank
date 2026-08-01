@@ -1,66 +1,3 @@
-# OnlineBank — Digital Banking Portal
-## Final Year / Mini Project Report
-
----
-
-# Title Page
-
-**Project Title:** OnlineBank — A Web-Based Digital Banking Portal
-
-**Submitted By:** [FILL: Student Full Name]
-
-**USN / Roll Number:** [FILL: USN / Roll Number]
-
-**Project Guide:** [FILL: Guide Name, Designation]
-
-**Department:** [FILL: Department Name (e.g., Department of Computer Science and Engineering)]
-
-**Institution:** [FILL: College / University Name]
-
-**Academic Year:** [FILL: e.g., 2025–2026]
-
-**Degree Programme:** [FILL: B.E. / B.Tech. / MCA / M.Tech.]
-
----
-
-# Certificate
-
-This is to certify that the project entitled **"OnlineBank — A Web-Based Digital Banking Portal"** is a bonafide work carried out by **[FILL: Student Name]** bearing USN **[FILL: USN]** in partial fulfilment of the requirements for the award of the degree of **[FILL: Degree]** in **[FILL: Branch]** from **[FILL: University Name]** during the academic year **[FILL: Academic Year]**.
-
-| | |
-|---|---|
-| **Project Guide** | **Head of Department** |
-| [FILL: Guide Name] | [FILL: HOD Name] |
-| [FILL: Designation] | [FILL: Designation] |
-| Signature: _____________ | Signature: _____________ |
-
-**External Examiner:** [FILL: Examiner Name] — Signature: _____________
-
-**Date of Viva:** [FILL: Date]
-
----
-
-# Acknowledgement
-
-I take this opportunity to express my sincere gratitude to all those who have supported me throughout this project.
-
-I am deeply thankful to my project guide **[FILL: Guide Name]** for their constant guidance, valuable suggestions, and encouragement throughout the development of this project.
-
-I extend my sincere thanks to **[FILL: HOD Name]**, Head of the Department of **[FILL: Department]**, for providing the necessary infrastructure and resources required for the successful completion of this project.
-
-I am grateful to the Principal of **[FILL: College Name]** for their continued support and motivation.
-
-I also acknowledge the developers and open-source communities behind FastAPI, React, SQLite, and the other libraries used in this project, whose documentation and community support were invaluable.
-
-Finally, I thank my family and friends for their constant encouragement and moral support during this project.
-
-**[FILL: Student Name]**
-**[FILL: USN]**
-**[FILL: Department]**
-**[FILL: College Name]**
-
----
-
 # Abstract
 
 OnlineBank is a full-stack web-based digital banking portal designed to simulate core retail banking operations in a secure, browser-based environment. The system is built using FastAPI (Python) as the backend REST API server, React 18 as the frontend single-page application, and SQLite as the embedded relational database engine. The frontend is scaffolded with Vite 5 and styled using TailwindCSS 3.
@@ -69,7 +6,7 @@ The system provides two distinct user roles: a standard bank customer and a syst
 
 Authentication is implemented using in-memory UUID bearer tokens issued on successful login, with password comparison performed against plaintext values stored in SQLite. Each login attempt—successful or failed—is recorded in a dedicated `login_history` table. The project demonstrates a clean layered architecture separating API routing (api.py), business logic (services/), data models (models/), database access (database/db.py), and utility functions (utils/).
 
----
+
 
 # Table of Contents
 
@@ -87,12 +24,12 @@ Authentication is implemented using in-memory UUID bearer tokens issued on succe
 12. References
 13. Appendix — Folder Structure
 
----
+
 
 # List of Figures
 
 | Figure No. | Caption |
-|---|---|
+|||
 | Figure 3.1 | System Architecture Diagram |
 | Figure 3.2 | Use Case Diagram |
 | Figure 3.3 | Entity-Relationship (ER) Diagram |
@@ -114,12 +51,12 @@ Authentication is implemented using in-memory UUID bearer tokens issued on succe
 | Figure 9.14 | Admin Panel — User Management |
 | Figure 9.15 | Admin Panel — All Transactions |
 
----
+
 
 # List of Tables
 
 | Table No. | Caption |
-|---|---|
+|||
 | Table 2.1 | Hardware Requirements |
 | Table 2.2 | Software Requirements |
 | Table 4.1 | Technology Stack Details |
@@ -131,7 +68,7 @@ Authentication is implemented using in-memory UUID bearer tokens issued on succe
 | Table 7.1 | REST API Endpoints |
 | Table 10.1 | Test Cases |
 
----
+
 
 # Chapter 1 — Introduction
 
@@ -175,7 +112,7 @@ Traditional banking requires customers to visit a physical branch for routine op
 ## 1.4 Existing System Limitations
 
 | Limitation | Description |
-|---|---|
+|||
 | Branch dependency | Customers must physically visit a branch for most operations. |
 | Time restriction | Services are available only during banking hours. |
 | Manual record-keeping | Paper-based or siloed digital records with limited audit trails. |
@@ -184,14 +121,14 @@ Traditional banking requires customers to visit a physical branch for routine op
 ## 1.5 Proposed System Advantages
 
 | Advantage | Description |
-|---|---|
+|||
 | 24 × 7 availability | Browser-based portal accessible at any time. |
 | Instant notifications | Push notifications created automatically after every transaction. |
 | Full audit trail | Every transaction and login attempt is persisted in the database. |
 | Role-based access | Admin-only endpoints enforced by the `require_admin` dependency in FastAPI. |
 | Centralised dashboard | Administrators view live aggregate statistics across all accounts. |
 
----
+
 
 # Chapter 2 — System Requirements
 
@@ -200,7 +137,7 @@ Traditional banking requires customers to visit a physical branch for routine op
 **Table 2.1 — Hardware Requirements**
 
 | Component | Minimum Specification |
-|---|---|
+|||
 | Processor | Intel Core i3 (7th generation) or equivalent, 1.6 GHz |
 | RAM | 4 GB |
 | Storage | 10 GB free disk space |
@@ -212,7 +149,7 @@ Traditional banking requires customers to visit a physical branch for routine op
 **Table 2.2 — Software Requirements**
 
 | Software / Library | Version Used | Role |
-|---|---|---|
+||||
 | Windows 10 / 11 | — | Operating system |
 | Python | 3.12 | Backend runtime |
 | FastAPI | ≥ 0.104.0 | REST API framework |
@@ -233,7 +170,7 @@ Traditional banking requires customers to visit a physical branch for routine op
 | @types/react | 18.2.55 | TypeScript type definitions for React |
 | @vitejs/plugin-react | 4.2.1 | Vite plugin for JSX transformation |
 
----
+
 
 # Chapter 3 — System Analysis and Design
 
@@ -243,40 +180,40 @@ The application follows a three-tier client-server architecture. The React singl
 
 **Figure 3.1 — System Architecture Diagram**
 
-![System Architecture Diagram](images/arch_diagram.png)
+![System Architecture Diagram](documents/images/arch_diagram.png)
 
 ## 3.2 Use Case Diagram
 
 **Figure 3.2 — Use Case Diagram**
 
-![Use Case Diagram](images/usecase_diagram.png)
+![Use Case Diagram](documents/images/usecase_diagram.png)
 
 ## 3.3 Entity-Relationship (ER) Diagram
 
 **Figure 3.3 — Entity-Relationship Diagram**
 
-![ER Diagram](images/er_diagram.png)
+![ER Diagram](documents/images/er_diagram.png)
 
 ## 3.4 Data Flow Diagram
 
 **Figure 3.4 — Data Flow Diagram (Level 1)**
 
-![Data Flow Diagram](images/dfd_diagram.png)
+![Data Flow Diagram](documents/images/dfd_diagram.png)
 
 ## 3.5 Sequence Diagram — Fund Transfer
 
 **Figure 3.5 — Sequence Diagram: Fund Transfer Flow**
 
-![Sequence Diagram - Transfer](images/sequence_transfer.png)
+![Sequence Diagram - Transfer](documents/images/sequence_transfer.png)
 
----
+
 
 # Chapter 4 — Technology Stack
 
 **Table 4.1 — Technology Stack Details**
 
 | Layer | Technology | Version | Purpose |
-|---|---|---|---|
+|||||
 | **Backend — API** | FastAPI | ≥ 0.104.0 | Defines all REST endpoints; handles request validation via Pydantic models; enforces auth via `Depends()` |
 | **Backend — Server** | Uvicorn (standard) | ≥ 0.24.0 | ASGI server that serves the FastAPI application; supports hot-reload in development |
 | **Backend — DB Driver** | sqlite3 | stdlib | Python built-in module; no external driver needed; row factory (`sqlite3.Row`) enables dict-like row access |
@@ -291,7 +228,7 @@ The application follows a three-tier client-server architecture. The React singl
 | **CSS Framework** | TailwindCSS | 3.4.1 | Utility-first CSS; combined with custom tokens in `index.css` |
 | **Context API** | React Context | (built-in) | `AuthContext` stores the authenticated user object and token; exposes `login()`, `logout()` functions |
 
----
+
 
 # Chapter 5 — Module Description
 
@@ -408,7 +345,7 @@ All admin endpoints are protected by the `require_admin` dependency, which check
 - **`GET /api/admin/monthly-activity`** returns system-wide monthly totals for admin charts.
 - **`GET /api/admin/recent-activity`** returns the most recent N transactions across all users.
 
----
+
 
 # Chapter 6 — Database Design
 
@@ -419,7 +356,7 @@ The database is a single SQLite file at the project root (`bank.db`). WAL (Write
 **Table 6.1 — users Table Schema**
 
 | Column | Type | Constraints | Description |
-|---|---|---|---|
+|||||
 | `id` | INTEGER | PRIMARY KEY AUTOINCREMENT | Unique user identifier |
 | `username` | TEXT | UNIQUE NOT NULL | Login username |
 | `password` | TEXT | NOT NULL | Plaintext password (demo only) |
@@ -438,7 +375,7 @@ The database is a single SQLite file at the project root (`bank.db`). WAL (Write
 **Table 6.2 — accounts Table Schema**
 
 | Column | Type | Constraints | Description |
-|---|---|---|---|
+|||||
 | `id` | INTEGER | PRIMARY KEY AUTOINCREMENT | Unique account ID |
 | `user_id` | INTEGER | NOT NULL, FK → `users(id)` | Owner user |
 | `account_number` | TEXT | UNIQUE NOT NULL | Format: `OBPK{user_id:07d}` |
@@ -454,7 +391,7 @@ The database is a single SQLite file at the project root (`bank.db`). WAL (Write
 **Table 6.3 — transactions Table Schema**
 
 | Column | Type | Constraints | Description |
-|---|---|---|---|
+|||||
 | `id` | INTEGER | PRIMARY KEY AUTOINCREMENT | Unique row ID |
 | `transaction_id` | TEXT | UNIQUE NOT NULL | Format: `TXN{YYYYMMDDHHMMSS}{4-random-digits}` |
 | `user_id` | INTEGER | NOT NULL, FK → `users(id)` | Initiating user |
@@ -471,7 +408,7 @@ The database is a single SQLite file at the project root (`bank.db`). WAL (Write
 **Table 6.4 — notifications Table Schema**
 
 | Column | Type | Constraints | Description |
-|---|---|---|---|
+|||||
 | `id` | INTEGER | PRIMARY KEY AUTOINCREMENT | Unique notification ID |
 | `user_id` | INTEGER | NOT NULL, FK → `users(id)` | Target user |
 | `title` | TEXT | NOT NULL | Notification heading |
@@ -485,13 +422,13 @@ The database is a single SQLite file at the project root (`bank.db`). WAL (Write
 **Table 6.5 — login_history Table Schema**
 
 | Column | Type | Constraints | Description |
-|---|---|---|---|
+|||||
 | `id` | INTEGER | PRIMARY KEY AUTOINCREMENT | Unique row ID |
 | `user_id` | INTEGER | NOT NULL, FK → `users(id)` | User who attempted login |
 | `login_time` | TEXT | DEFAULT `datetime('now','localtime')` | Timestamp of the attempt |
 | `status` | TEXT | — | `'Success'` or `'Failed'` |
 
----
+
 
 # Chapter 7 — API Documentation
 
@@ -500,7 +437,7 @@ All endpoints are prefixed with `/api`. Protected endpoints require the HTTP hea
 **Table 7.1 — REST API Endpoints**
 
 | Method | Endpoint | Auth | Request Body | Response |
-|---|---|---|---|---|
+||||||
 | POST | `/api/auth/login` | None | `{username, password}` | `{token, user: {...}}` |
 | POST | `/api/auth/register` | None | `{username, password, full_name, email, phone, address, account_type}` | `{user: {...}}` |
 | POST | `/api/auth/forgot-password` | None | `{username, email}` | `{temp_password}` |
@@ -534,7 +471,7 @@ All endpoints are prefixed with `/api`. Protected endpoints require the HTTP hea
 | GET | `/api/admin/monthly-activity` | Admin | Query: `months` | `{YYYY-MM: {...}}` |
 | GET | `/api/admin/recent-activity` | Admin | Query: `limit` | `[{...transaction+user rows}]` |
 
----
+
 
 # Chapter 8 — Implementation
 
@@ -769,108 +706,108 @@ def require_admin(user=Depends(get_current_user)):
     return user
 ```
 
----
+
 
 # Chapter 9 — Screenshots and Output
 
 ## Figure 9.1 — Login Page
 
-![Login Page](images/01-login.png)
+![Login Page](documents/images/01-login.png)
 
 *The login page provides username and password fields along with links to the registration and forgot-password pages.*
 
 ## Figure 9.2 — Registration Page
 
-![Registration Page](images/02-register.png)
+![Registration Page](documents/images/02-register.png)
 
 *New users fill in username, password, full name, email, phone, address, and account type (Savings or Current) to create an account.*
 
 ## Figure 9.3 — Forgot Password Page
 
-![Forgot Password Page](images/03-forgot-password.png)
+![Forgot Password Page](documents/images/03-forgot-password.png)
 
 *Users enter their username and registered email. If the combination matches a database record, a temporary password (`reset123`) is displayed on screen.*
 
 ## Figure 9.4 — User Dashboard
 
-![User Dashboard](images/04-dashboard.png)
+![User Dashboard](documents/images/04-dashboard.png)
 
 *The dashboard displays account balance, account details, a bar chart of monthly transaction activity, transaction statistics cards, and quick action buttons.*
 
 ## Figure 9.5 — Deposit Page
 
-![Deposit Page](images/05-deposit.png)
+![Deposit Page](documents/images/05-deposit.png)
 
 *Users enter an amount and optional description to credit their account. Quick-select amount buttons are provided for convenience.*
 
 ## Figure 9.6 — Withdraw Page
 
-![Withdraw Page](images/06-withdraw.png)
+![Withdraw Page](documents/images/06-withdraw.png)
 
 *Users enter a withdrawal amount. The system validates the amount against the current balance and rejects the request if funds are insufficient.*
 
 ## Figure 9.7 — Fund Transfer Page
 
-![Fund Transfer Page](images/07-transfer.png)
+![Fund Transfer Page](documents/images/07-transfer.png)
 
 *Users select a recipient from the list of active users, enter an amount and remarks. The system prevents self-transfers and checks the sender's balance before proceeding.*
 
 ## Figure 9.8 — Transaction History Page
 
-![Transaction History Page](images/08-transactions.png)
+![Transaction History Page](documents/images/08-transactions.png)
 
 *Full paginated transaction list with filter controls for transaction type (All, Deposit, Withdraw, Transfer) and a keyword search field.*
 
 ## Figure 9.9 — Mini Statement Page
 
-![Mini Statement Page](images/09-mini-statement.png)
+![Mini Statement Page](documents/images/09-mini-statement.png)
 
 *Displays the most recent 10 transactions for the logged-in user in a compact, printable format.*
 
 ## Figure 9.10 — Notifications Page
 
-![Notifications Page](images/10-notifications.png)
+![Notifications Page](documents/images/10-notifications.png)
 
 *All system notifications are listed with category badges (info, success, warning), read/unread status, and timestamp. A "Mark all as read" button is provided.*
 
 ## Figure 9.11 — Profile Page
 
-![Profile Page](images/11-profile.png)
+![Profile Page](documents/images/11-profile.png)
 
 *Users can update their full name, email, phone, and address. Avatar colour customisation is also available on this page.*
 
 ## Figure 9.12 — Settings Page
 
-![Settings Page](images/12-settings.png)
+![Settings Page](documents/images/12-settings.png)
 
 *The settings page provides password change functionality, requiring the current password and enforcing a minimum length of 4 characters for the new password.*
 
 ## Figure 9.13 — Admin Panel — Dashboard
 
-![Admin Dashboard](images/13-admin-dashboard.png)
+![Admin Dashboard](documents/images/13-admin-dashboard.png)
 
 *The admin dashboard displays seven aggregate statistics (total users, active users, total deposits, withdrawals, transfers, total balance, total transactions) and a monthly activity bar chart.*
 
 ## Figure 9.14 — Admin Panel — User Management
 
-![Admin User Management](images/14-admin-users.png)
+![Admin User Management](documents/images/14-admin-users.png)
 
 *The user management table lists all registered users with their account type, balance, active status, and last login. Admins can add, edit, activate/deactivate, or delete users.*
 
 ## Figure 9.15 — Admin Panel — All Transactions
 
-![Admin All Transactions](images/15-admin-transactions.png)
+![Admin All Transactions](documents/images/15-admin-transactions.png)
 
 *The global transaction explorer shows all transactions across all users with filters for type, keyword search, and date range.*
 
----
+
 
 # Chapter 10 — Testing
 
 **Table 10.1 — Test Cases**
 
 | Test ID | Scenario | Input | Expected Output | Actual Output | Status |
-|---|---|---|---|---|---|
+|||||||
 | TC-01 | Valid user login | username: `john_doe`, password: `password123` | JWT token issued; redirect to Dashboard | Token issued; Dashboard loaded | PASS |
 | TC-02 | Invalid password login | username: `john_doe`, password: `wrongpass` | Error: "Invalid username or password." | Error message displayed | PASS |
 | TC-03 | Login with deactivated account | Admin deactivates `john_doe`; login attempt | Error: "Your account has been deactivated." | Error message displayed | PASS |
@@ -890,7 +827,7 @@ def require_admin(user=Depends(get_current_user)):
 | TC-17 | Non-admin accessing admin endpoint | Regular user calls `GET /api/admin/stats` | HTTP 403: "Admin access required" | 403 response returned | PASS |
 | TC-18 | Unauthenticated access to protected endpoint | No Authorization header | HTTP 401: "Not authenticated" | 401 response returned | PASS |
 
----
+
 
 # Chapter 11 — Conclusion and Future Scope
 
@@ -901,7 +838,7 @@ OnlineBank successfully demonstrates the design and implementation of a full-sta
 ## 11.2 Future Scope
 
 | Enhancement | Description |
-|---|---|
+|||
 | Password hashing | Replace plaintext passwords with bcrypt or Argon2 hashes for production-grade security. |
 | JWT with expiry | Replace the in-memory UUID token store with signed JWTs containing configurable expiry times. |
 | Two-factor authentication | Add TOTP (time-based one-time password) as a second login factor. |
@@ -913,7 +850,7 @@ OnlineBank successfully demonstrates the design and implementation of a full-sta
 | Audit logging | Introduce an immutable audit log table for all admin actions with timestamps and actor IDs. |
 | Spending analytics | Add category-wise expenditure analysis and monthly budget tracking for users. |
 
----
+
 
 # References
 
@@ -930,7 +867,7 @@ OnlineBank successfully demonstrates the design and implementation of a full-sta
 11. Lucide React — https://lucide.dev/
 12. Pandoc — https://pandoc.org/
 
----
+
 
 # Appendix — Folder Structure
 
@@ -971,7 +908,7 @@ OnlineBank/
 ├── documents/
 │   ├── OnlineBank_Project_Report.md   # This report (Markdown source)
 │   ├── OnlineBank_Project_Report.docx # Compiled Word document
-│   └── images/
+│   └── documents/images/
 │       ├── 01-login.png
 │       ├── 02-register.png
 │       ├── 03-forgot-password.png
