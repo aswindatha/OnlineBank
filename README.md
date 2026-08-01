@@ -802,7 +802,7 @@ def require_admin(user=Depends(get_current_user)):
 
 ## Figure 9.16 — Application Demo Video
 
-<video src="documents/OnlineBank_Full_Demo.mp4" controls width="100%"></video>
+https://github.com/user-attachments/assets/1c5bfbf2-7761-4d92-92a4-2d3b745a359b
 
 *Automated walkthrough of the full application — public pages, user functionality (login, deposit, withdraw, transfer, transactions, mini statement, notifications, profile update, settings), and admin functionality (dashboard, user management, add user, all transactions).*
 
