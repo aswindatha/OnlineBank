@@ -29,7 +29,7 @@ Authentication is implemented using in-memory UUID bearer tokens issued on succe
 # List of Figures
 
 | Figure No. | Caption |
-|||
+|---|---|
 | Figure 3.1 | System Architecture Diagram |
 | Figure 3.2 | Use Case Diagram |
 | Figure 3.3 | Entity-Relationship (ER) Diagram |
@@ -56,7 +56,7 @@ Authentication is implemented using in-memory UUID bearer tokens issued on succe
 # List of Tables
 
 | Table No. | Caption |
-|||
+|---|---|
 | Table 2.1 | Hardware Requirements |
 | Table 2.2 | Software Requirements |
 | Table 4.1 | Technology Stack Details |
@@ -112,7 +112,7 @@ Traditional banking requires customers to visit a physical branch for routine op
 ## 1.4 Existing System Limitations
 
 | Limitation | Description |
-|||
+|---|---|
 | Branch dependency | Customers must physically visit a branch for most operations. |
 | Time restriction | Services are available only during banking hours. |
 | Manual record-keeping | Paper-based or siloed digital records with limited audit trails. |
@@ -121,7 +121,7 @@ Traditional banking requires customers to visit a physical branch for routine op
 ## 1.5 Proposed System Advantages
 
 | Advantage | Description |
-|||
+|---|---|
 | 24 × 7 availability | Browser-based portal accessible at any time. |
 | Instant notifications | Push notifications created automatically after every transaction. |
 | Full audit trail | Every transaction and login attempt is persisted in the database. |
@@ -137,7 +137,7 @@ Traditional banking requires customers to visit a physical branch for routine op
 **Table 2.1 — Hardware Requirements**
 
 | Component | Minimum Specification |
-|||
+|---|---|
 | Processor | Intel Core i3 (7th generation) or equivalent, 1.6 GHz |
 | RAM | 4 GB |
 | Storage | 10 GB free disk space |
@@ -149,7 +149,7 @@ Traditional banking requires customers to visit a physical branch for routine op
 **Table 2.2 — Software Requirements**
 
 | Software / Library | Version Used | Role |
-||||
+|---|---|---|
 | Windows 10 / 11 | — | Operating system |
 | Python | 3.12 | Backend runtime |
 | FastAPI | ≥ 0.104.0 | REST API framework |
@@ -213,7 +213,7 @@ The application follows a three-tier client-server architecture. The React singl
 **Table 4.1 — Technology Stack Details**
 
 | Layer | Technology | Version | Purpose |
-|||||
+|---|---|---|---|
 | **Backend — API** | FastAPI | ≥ 0.104.0 | Defines all REST endpoints; handles request validation via Pydantic models; enforces auth via `Depends()` |
 | **Backend — Server** | Uvicorn (standard) | ≥ 0.24.0 | ASGI server that serves the FastAPI application; supports hot-reload in development |
 | **Backend — DB Driver** | sqlite3 | stdlib | Python built-in module; no external driver needed; row factory (`sqlite3.Row`) enables dict-like row access |
@@ -356,7 +356,7 @@ The database is a single SQLite file at the project root (`bank.db`). WAL (Write
 **Table 6.1 — users Table Schema**
 
 | Column | Type | Constraints | Description |
-|||||
+|---|---|---|---|
 | `id` | INTEGER | PRIMARY KEY AUTOINCREMENT | Unique user identifier |
 | `username` | TEXT | UNIQUE NOT NULL | Login username |
 | `password` | TEXT | NOT NULL | Plaintext password (demo only) |
@@ -375,7 +375,7 @@ The database is a single SQLite file at the project root (`bank.db`). WAL (Write
 **Table 6.2 — accounts Table Schema**
 
 | Column | Type | Constraints | Description |
-|||||
+|---|---|---|---|
 | `id` | INTEGER | PRIMARY KEY AUTOINCREMENT | Unique account ID |
 | `user_id` | INTEGER | NOT NULL, FK → `users(id)` | Owner user |
 | `account_number` | TEXT | UNIQUE NOT NULL | Format: `OBPK{user_id:07d}` |
@@ -391,7 +391,7 @@ The database is a single SQLite file at the project root (`bank.db`). WAL (Write
 **Table 6.3 — transactions Table Schema**
 
 | Column | Type | Constraints | Description |
-|||||
+|---|---|---|---|
 | `id` | INTEGER | PRIMARY KEY AUTOINCREMENT | Unique row ID |
 | `transaction_id` | TEXT | UNIQUE NOT NULL | Format: `TXN{YYYYMMDDHHMMSS}{4-random-digits}` |
 | `user_id` | INTEGER | NOT NULL, FK → `users(id)` | Initiating user |
@@ -408,7 +408,7 @@ The database is a single SQLite file at the project root (`bank.db`). WAL (Write
 **Table 6.4 — notifications Table Schema**
 
 | Column | Type | Constraints | Description |
-|||||
+|---|---|---|---|
 | `id` | INTEGER | PRIMARY KEY AUTOINCREMENT | Unique notification ID |
 | `user_id` | INTEGER | NOT NULL, FK → `users(id)` | Target user |
 | `title` | TEXT | NOT NULL | Notification heading |
@@ -422,7 +422,7 @@ The database is a single SQLite file at the project root (`bank.db`). WAL (Write
 **Table 6.5 — login_history Table Schema**
 
 | Column | Type | Constraints | Description |
-|||||
+|---|---|---|---|
 | `id` | INTEGER | PRIMARY KEY AUTOINCREMENT | Unique row ID |
 | `user_id` | INTEGER | NOT NULL, FK → `users(id)` | User who attempted login |
 | `login_time` | TEXT | DEFAULT `datetime('now','localtime')` | Timestamp of the attempt |
@@ -437,7 +437,7 @@ All endpoints are prefixed with `/api`. Protected endpoints require the HTTP hea
 **Table 7.1 — REST API Endpoints**
 
 | Method | Endpoint | Auth | Request Body | Response |
-||||||
+|---|---|---|---|---|
 | POST | `/api/auth/login` | None | `{username, password}` | `{token, user: {...}}` |
 | POST | `/api/auth/register` | None | `{username, password, full_name, email, phone, address, account_type}` | `{user: {...}}` |
 | POST | `/api/auth/forgot-password` | None | `{username, email}` | `{temp_password}` |
@@ -807,7 +807,7 @@ def require_admin(user=Depends(get_current_user)):
 **Table 10.1 — Test Cases**
 
 | Test ID | Scenario | Input | Expected Output | Actual Output | Status |
-|||||||
+|---|---|---|---|---|---|
 | TC-01 | Valid user login | username: `john_doe`, password: `password123` | JWT token issued; redirect to Dashboard | Token issued; Dashboard loaded | PASS |
 | TC-02 | Invalid password login | username: `john_doe`, password: `wrongpass` | Error: "Invalid username or password." | Error message displayed | PASS |
 | TC-03 | Login with deactivated account | Admin deactivates `john_doe`; login attempt | Error: "Your account has been deactivated." | Error message displayed | PASS |
@@ -838,7 +838,7 @@ OnlineBank successfully demonstrates the design and implementation of a full-sta
 ## 11.2 Future Scope
 
 | Enhancement | Description |
-|||
+|---|---|
 | Password hashing | Replace plaintext passwords with bcrypt or Argon2 hashes for production-grade security. |
 | JWT with expiry | Replace the in-memory UUID token store with signed JWTs containing configurable expiry times. |
 | Two-factor authentication | Add TOTP (time-based one-time password) as a second login factor. |
