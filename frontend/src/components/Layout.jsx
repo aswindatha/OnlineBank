@@ -2,9 +2,24 @@ import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Sidebar } from './Sidebar'
 import { TopBar } from './TopBar'
+import { useAuth } from '../context/AuthContext'
 
 export function Layout() {
   const [collapsed, setCollapsed] = useState(false)
+  const { user } = useAuth()
+  const isAdmin = user?.role === 'admin'
+
+  if (isAdmin) {
+    return (
+      <div className="min-h-screen bg-slate-100 dark:bg-slate-950">
+        <main className="p-6 overflow-x-hidden">
+          <div className="max-w-7xl mx-auto animate-fade-in">
+            <Outlet />
+          </div>
+        </main>
+      </div>
+    )
+  }
 
   return (
     <div className="flex min-h-screen bg-slate-100 dark:bg-slate-950">

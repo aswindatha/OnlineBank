@@ -79,10 +79,11 @@ def add_user(username: str, password: str, full_name: str, email: str,
         "INSERT INTO accounts (user_id, account_number, account_type, balance) VALUES (?, ?, ?, ?)",
         (user_id, acc_num, account_type, initial_balance),
     )
-    create_notification(
-        user_id, "Account Created",
-        f"Your account has been created by admin. Account No: {acc_num}",
-        "success",
+    cursor.execute(
+        "INSERT INTO notifications (user_id, title, message, category) VALUES (?, ?, ?, ?)",
+        (user_id, "Account Created",
+         f"Your account has been created by admin. Account No: {acc_num}",
+         "success"),
     )
     conn.commit()
     conn.close()

@@ -800,7 +800,11 @@ def require_admin(user=Depends(get_current_user)):
 
 *The global transaction explorer shows all transactions across all users with filters for type, keyword search, and date range.*
 
+## Figure 9.16 — Application Demo Video
 
+<video src="documents/OnlineBank_Full_Demo.mp4" controls width="100%"></video>
+
+*Automated walkthrough of the full application — public pages, user functionality (login, deposit, withdraw, transfer, transactions, mini statement, notifications, profile update, settings), and admin functionality (dashboard, user management, add user, all transactions).*
 
 # Chapter 10 — Testing
 

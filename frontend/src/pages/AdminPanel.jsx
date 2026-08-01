@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import {
   Users, TrendingUp, TrendingDown, ArrowRightLeft, Wallet,
-  Receipt, Search, UserPlus, Trash2, Power, Edit, Activity,
+  Receipt, Search, UserPlus, Trash2, Power, Edit, Activity, LogOut,
 } from 'lucide-react'
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -9,6 +9,7 @@ import {
 } from 'recharts'
 import { adminApi } from '../api/admin'
 import { useToast } from '../context/ToastContext'
+import { useAuth } from '../context/AuthContext'
 import {
   Card, CardBody, CardHeader, CardTitle, StatCard, Button,
   Badge, Modal, Avatar, Spinner, EmptyState,
@@ -176,11 +177,22 @@ export default function AdminPanel() {
     { key: 'transactions', label: 'Transactions' },
   ]
 
+  const { logout } = useAuth()
+
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="page-title">Admin Panel</h1>
-        <p className="page-subtitle">System administration and management</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="page-title">Admin Panel</h1>
+          <p className="page-subtitle">System administration and management</p>
+        </div>
+        <button
+          onClick={logout}
+          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-red-500 hover:bg-red-600 text-white text-sm font-medium transition-colors shadow-lg"
+        >
+          <LogOut size={18} />
+          Logout
+        </button>
       </div>
 
       {/* Tabs */}
