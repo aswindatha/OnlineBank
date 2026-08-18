@@ -20,7 +20,7 @@ export default function Login() {
     try {
       const user = await login(username, password)
       toast.success(`Welcome back, ${user.full_name}!`)
-      navigate('/dashboard')
+      navigate(user.role === 'admin' ? '/admin' : '/dashboard')
     } catch (err) {
       const msg = err.response?.data?.detail || 'Login failed. Please try again.'
       setError(msg)

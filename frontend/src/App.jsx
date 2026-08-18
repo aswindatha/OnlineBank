@@ -19,9 +19,11 @@ import Settings from './pages/Settings'
 import AdminPanel from './pages/AdminPanel'
 
 export default function App() {
-  const { loading } = useAuth()
+  const { user, loading } = useAuth()
 
   if (loading) return <FullPageSpinner />
+
+  const homePath = user?.role === 'admin' ? '/admin' : '/dashboard'
 
   return (
     <Routes>
@@ -58,8 +60,8 @@ export default function App() {
       </Route>
 
       {/* Redirects */}
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      <Route path="/" element={<Navigate to={homePath} replace />} />
+      <Route path="*" element={<Navigate to={homePath} replace />} />
     </Routes>
   )
 }
