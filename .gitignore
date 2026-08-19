@@ -6,6 +6,7 @@ bank.db
 # Node
 frontend/node_modules/
 frontend/dist/
+frontend/test-results/
 
 # OS
 .DS_Store
@@ -18,3 +19,6 @@ Thumbs.db
 
 # Env
 .env
+
+# Databases
+database/banking.db
